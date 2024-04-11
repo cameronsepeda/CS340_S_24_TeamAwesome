@@ -27,12 +27,9 @@ if __name__ == "__main__":
 #
 
 #custom imports
-
+import config
 
 #other imports
-import config
-import lifter
-
 from   copy       import deepcopy as dpcpy
 
 '''
