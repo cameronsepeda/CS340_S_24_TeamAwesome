@@ -61,11 +61,11 @@ import seaborn as sns
 
 #Class definitions Start Here
 class Person:
-  name = 'John Stamos'
-  sex = 'M'
-  weightClass = '114'
+  name = None
+  sex = None
+  weightClass = '0'
   
-  def __init__(self, pName, pSex, pWeightClass):
+  def __init__(self, pName, pSex, pWeightCategory):
     pass
 
   def showHistogram(self):
@@ -74,7 +74,7 @@ class Person:
   def showLine(self):
     pass
 
-  def showWeightClass(self):
+  def searchWeightCategory(self):
     pass
 
 
