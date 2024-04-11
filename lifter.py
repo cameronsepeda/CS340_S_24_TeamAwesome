@@ -27,11 +27,10 @@ if __name__ == "__main__":
 #
 
 #custom imports
+import config
 import Person from person.py
 
 #other imports
-import config
-
 from   copy       import deepcopy as dpcpy
 
 '''
