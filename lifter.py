@@ -77,6 +77,27 @@ class Lifter implements Person:
   def showScatter(self):
     pass
 
+  def searchBench():
+    pass
+
+  def calculateMean():
+    pass
+
+  def calculateMedian():
+    pass
+
+  def calculateStd():
+    pass
+
+  def showUniqueValues():
+    pass
+
+  def generatePermutations():
+    pass
+
+  def generateCombinations():
+    pass
+
 
 #Function definitions Start Here
 def main():
