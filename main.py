@@ -27,13 +27,11 @@ if __name__ == "__main__":
 #
 
 #custom imports
-
-
-#other imports
 import config
 import person
 import lifter
 
+#other imports
 from   copy       import deepcopy as dpcpy
 
 '''
