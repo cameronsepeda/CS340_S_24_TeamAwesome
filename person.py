@@ -63,6 +63,7 @@ import seaborn as sns
 class Person:
   name = None
   sex = None
+  bodyWeight = '0'
   weightClass = '0'
   
   def __init__(self, pName, pSex, pWeightCategory):
