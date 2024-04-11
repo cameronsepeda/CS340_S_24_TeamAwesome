@@ -68,6 +68,9 @@ class Person:
   def __init__(self, pName, pSex, pWeightCategory):
     pass
 
+  def storeConfig():
+    pass
+
   def showHistogram(self):
     pass
 
