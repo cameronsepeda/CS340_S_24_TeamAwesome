@@ -30,6 +30,9 @@ if __name__ == "__main__":
 
 
 #other imports
+import config
+import lifter
+
 from   copy       import deepcopy as dpcpy
 
 '''
