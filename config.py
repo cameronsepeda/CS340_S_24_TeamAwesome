@@ -44,7 +44,6 @@ import seaborn as sns
 
 
 #%% CONSTANTS                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 LBS_TO_KGS = 0.453592
 KGS_TO_LBS = 2.20462
 
