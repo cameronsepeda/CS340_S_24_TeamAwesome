@@ -2,16 +2,18 @@
 module_name = 'lifter'
 
 '''
-Version: <***>
+Version:  1.0000000000000000000000000000000000000000001
+
 
 Description:
     <***>
 
 Authors:
-    <***>
+    Team Awesome
+    Cameron & Henry
 
-Date Created     :  <***>
-Date Last Updated:  <***>
+Date Created     :  3/30/24
+Date Last Updated:  4/16/24
 
 Doc:
     <***>
@@ -21,26 +23,20 @@ Notes:
 '''
 
 #%% IMPORTS                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-if __name__ == "__main__":
-   import os
-   #os.chdir("./../..")
-#
+
 
 #custom imports
-import config
-import Person from person.py
+from person import Person
 
 #other imports
 from   copy       import deepcopy as dpcpy
-
-'''
 from   matplotlib import pyplot as plt
-import mne
 import numpy  as np 
+import seaborn as sns
 import os
 import pandas as pd
-import seaborn as sns
-'''
+import itertools
+
 #%% USER INTERFACE              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -61,43 +57,61 @@ import seaborn as sns
 
 
 #Class definitions Start Here
-class Lifter implements Person:
-  bench = '0'
-  squat = '0'
-  deadlift = '0'
-  
-  def __init__(self, lBench, lSquat, lDeadlift):
-    pass
+class Lifter(Person):
 
-  def showViolin(self):
-    pass
 
-  def showWhisker(self):
-    pass
+  def __init__(self, file):
+    self.data = pd.read_csv(file)
 
-  def showScatter(self):
-    pass
+  def read_csv(self):
+    return self.data
 
-  def searchBench():
-    pass
+  def showViolin(self, data = None):
+    if data is None:
+      data = self.data
 
-  def calculateMean():
-    pass
+    sns.violinplot(data=data)
+    plt.show()
 
-  def calculateMedian():
-    pass
+  def showWhisker(self, data = None):
+    if data is None:
+      data = self.data
 
-  def calculateStd():
-    pass
+    self.data.plot(kind='box', figsize=(10, 6))
+    plt.show()
 
-  def showUniqueValues():
-    pass
+  def showScatter(self, data = None):
+    if data is None:
+      data = self.data
 
-  def generatePermutations():
-    pass
+    data.plot(kind='scatter', x='WeightCategory', y='Total', figsize=(10, 6))
+    plt.show()
 
-  def generateCombinations():
-    pass
+  def searchBench(self, Bench, data = None):
+    if data is None:
+      data = self.data
+
+    return data.query(f"Bench == {Bench}")
+
+  def calculateStats(self, column):
+    stats = {
+      'column': column,
+      'mean': self.data[column].mean(),
+      'median': self.data[column].median(),
+      'std': self.data[column].std(),
+        }
+    return stats
+
+  def showUniqueValues(self, column):
+    return self.data[column].unique()
+
+  def generatePermutations(self,r, column):
+    permutations = list(itertools.permutations(self.showUniqueValues(column), r))
+    return permutations
+
+  def generateCombinations(self, r, column):
+    combinations = list(itertools.combinations(self.showUniqueValues(column), r))
+    return combinations
 
 
 #Function definitions Start Here

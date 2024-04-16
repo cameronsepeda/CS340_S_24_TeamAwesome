@@ -29,7 +29,7 @@ if __name__ == "__main__":
 #custom imports
 import config
 import person
-import lifter
+from lifter import Lifter
 
 #other imports
 from   copy       import deepcopy as dpcpy
@@ -67,7 +67,13 @@ import seaborn as sns
 
 #Function definitions Start Here
 def main():
-    pass
+    lifter = Lifter('data.csv')
+    print(lifter.read_csv())
+    print(lifter.calculateStats("Total"))
+    print(lifter.showUniqueValues("Total"))
+    print(lifter.generateCombinations(3,"Total"))
+    #lifter.showViolin()
+
 #
 
 #%% MAIN CODE                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
