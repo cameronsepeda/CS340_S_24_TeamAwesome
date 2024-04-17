@@ -154,14 +154,16 @@ def run_console_ui():
             print("File not found.")
 
     while True:
-        print("What would you like to do with '{}'? \n".format(file_name))
+        print("What would you like to do with '{}'? \n".format(file_name + file_extension))
         print("Display Data: Enter 'V'")
         print("Show Unique Values: Enter 'U'")
+        print("Search by Weight Category: Enter 'W'")
         print("Generate Combinations: Enter 'G'")
         print("Generate Permutations: Enter 'P'")
         print("Calculate: Enter 'C'")
         print("Draw a Graph: Enter 'D'")
         print("Export a Graph to the Output Folder: Enter 'X'")
+        print("Export Pickle File: Enter 'K'")
         print("Quit: Enter 'Q'. \n")
 
         user_input = input("Enter Letter: ").lower()
@@ -184,6 +186,29 @@ def run_console_ui():
                     print(lifter.showUniqueValues("Deadlift"))
                 elif unique_input == 'total':
                     print(lifter.showUniqueValues("Total"))
+                else:
+                    print("Invalid option.")
+                break
+
+        elif user_input == 'w':
+            while True:
+                weightCategory_input = input("Enter Weight Category (Options: 97, 105, 114, 123, 132, 148, 165, 181): ")
+                if weightCategory_input == '97':
+                    print(lifter.searchWeightCategory("97"))
+                elif weightCategory_input == '105':
+                    print(lifter.searchWeightCategory("105"))
+                elif weightCategory_input == '114':
+                    print(lifter.searchWeightCategory("114"))
+                elif weightCategory_input == '123':
+                    print(lifter.searchWeightCategory("123"))
+                elif weightCategory_input == '132':
+                    print(lifter.searchWeightCategory("132"))
+                elif weightCategory_input == '148':
+                    print(lifter.searchWeightCategory("148"))
+                elif weightCategory_input == '165':
+                    print(lifter.searchWeightCategory("165"))
+                elif weightCategory_input == '181':
+                    print(lifter.searchWeightCategory("181"))
                 else:
                     print("Invalid option.")
                 break
@@ -245,6 +270,11 @@ def run_console_ui():
                 if export_input == 'q':
                     break
                 run_export(export_input, lifter)
+
+        elif user_input == 'k':
+            while True:
+                print(lifter.exportPickle())
+                break
 
         elif user_input == 'q':
             break
