@@ -27,20 +27,17 @@ if __name__ == "__main__":
 #
 
 #custom imports
-import config
-import Person from person.py
+from person import Person
 
 #other imports
-from   copy       import deepcopy as dpcpy
-
-'''
-from   matplotlib import pyplot as plt
-import mne
-import numpy  as np 
+from copy import deepcopy as dpcpy
+from matplotlib import pyplot as plt
+import numpy as np 
 import os
 import pandas as pd
 import seaborn as sns
-'''
+import itertools
+
 #%% USER INTERFACE              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -61,44 +58,50 @@ import seaborn as sns
 
 
 #Class definitions Start Here
-class Lifter implements Person:
-  bench = '0'
-  squat = '0'
-  deadlift = '0'
-  
-  def __init__(self, lBench, lSquat, lDeadlift):
-    pass
+class Lifter(Person):
+
+
+  def __init__(self, file):
+    self.data = pd.read_csv(file)
+
+  def read_csv(self):
+    return self.data
 
   def showViolin(self):
-    pass
+    sns.violinplot(data=self.data)
+    plt.show()
 
   def showWhisker(self):
-    pass
+    self.data.plot(kind='box', figsize=(10, 6))
+    plt.show()
 
-  def showScatter(self):
-    pass
+  def showScatter(self, column):
+    self.data.plot(kind='scatter', x='WeightCategory', y=column,  figsize=(10, 6))
+    plt.show()
 
-  def searchBench():
-    pass
+  def searchTotal(self, Total):
+    self.data = self.data.query(f"Total == {Total}")
+    return self.data.query(f"Total == {Total}")
 
-  def calculateMean():
-    pass
+  def calculateStats(self, column):
+    stats = {
+      'column': column,
+      'mean': self.data[column].mean(),
+      'median': self.data[column].median(),
+      'std': self.data[column].std(),
+        }
+    return stats
 
-  def calculateMedian():
-    pass
+  def showUniqueValues(self, column):
+    return self.data[column].unique()
 
-  def calculateStd():
-    pass
+  def generatePermutations(self,r, column):
+    permutations = list(itertools.permutations(self.showUniqueValues(column), r))
+    return permutations
 
-  def showUniqueValues():
-    pass
-
-  def generatePermutations():
-    pass
-
-  def generateCombinations():
-    pass
-
+  def generateCombinations(self, r, column):
+    combinations = list(itertools.combinations(self.showUniqueValues(column), r))
+    return combinations
 
 #Function definitions Start Here
 def main():
