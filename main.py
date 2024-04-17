@@ -111,16 +111,17 @@ def run_drawing(draw_input, lifter):
 def run_console_ui():
     lifter = None
     while True:
+        file_extension = input("What type of file are you using .csv or .pkl?: ")
         file_name = input("Enter the name of the .csv file you would like to read from: ")
-        if os.path.exists(file_name + ".csv"):
-            lifter = Lifter(file_name + ".csv")
+        if os.path.exists("INPUT/" + file_name + file_extension):
+            lifter = Lifter(file_name + file_extension)
             break
         else:
             print("File not found.")
 
     while True:
         print("What would you like to do with '{}'? \n".format(file_name))
-        print("Display .csv Data: Enter 'V'")
+        print("Display Data: Enter 'V'")
         print("Show Unique Values: Enter 'U'")
         print("Generate Combinations: Enter 'G'")
         print("Generate Permutations: Enter 'P'")
@@ -132,7 +133,7 @@ def run_console_ui():
 
         if user_input == 'v':
             while True:
-                print(lifter.read_csv())
+                print(lifter.showData())
                 break
 
         elif user_input == 'u':
