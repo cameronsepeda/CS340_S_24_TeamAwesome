@@ -66,17 +66,11 @@ class Lifter(Person):
   def read_csv(self):
     return self.data
 
-  def showViolin(self, data = None):
-    if data is None:
-      data = self.data
-
-    sns.violinplot(data=data)
+  def showViolin(self):
+    sns.violinplot(data=self.data)
     plt.show()
 
-  def showWhisker(self, data = None):
-    if data is None:
-      data = self.data
-
+  def showWhisker(self):
     self.data.plot(kind='box', figsize=(10, 6))
     plt.show()
 
