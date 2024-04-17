@@ -67,11 +67,10 @@ import seaborn as sns
 
 #Function definitions Start Here
 def main():
-    lifter = Lifter('data.csv')
-    print(lifter.read_csv())
-    lifter.showScatter("Total")
+    lifter = Lifter()
     
-    #lifter.showViolin()
+    lifter.showHistogram()
+
 
 #
 
