@@ -55,6 +55,8 @@ WILKS_F_D = -0.001050400051
 WILKS_F_E =.00000938773881462799
 WILKS_F_F = -.000000023334613884954
 output_dir = "OUTPUT"
+input_dir = "INPUT"
+
 #%% CONFIGURATION               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

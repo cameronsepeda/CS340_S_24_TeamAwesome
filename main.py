@@ -83,10 +83,9 @@ def draw_options():
 
 def run_drawing(draw_input, lifter):
     if draw_input == 'h':
-        print("Drawing a Histogram...")
         lifter.showHistogram()
     elif draw_input == 'l':
-        print("Drawing a Line Plot...")
+        lifter.showLine()
     elif draw_input == 'v':
         lifter.showViolin()
     elif draw_input == 'w':
@@ -108,11 +107,46 @@ def run_drawing(draw_input, lifter):
     else:
         print("Invalid option.")
 
+def export_options():
+    print("Select what you would like to Export: \n")
+    print("Histogram: Enter 'H'")
+    print("Line Plot: Enter 'L'")
+    print("Violin Plot: Enter 'V'")
+    print("Whisker-Box Plot: Enter 'W'")
+    print("Scatter Plot: Enter 'S'")
+    print("Quit: Enter 'Q'. \n")
+
+def run_export(export_input, lifter):
+    if export_input == 'h':
+        lifter.exportHistogram()
+    elif export_input == 'l':
+        lifter.exportLine()
+    elif export_input == 'v':
+        lifter.exportViolin()
+    elif export_input == 'w':
+        lifter.exportWhisker()
+    elif export_input == 's':
+        scatterex_input = input("Enter Column (Options: BodyWeight, Bench, Squat, Deadlift, Total): ").lower()
+        if scatterex_input == 'bodyweight':
+            print(lifter.exportScatter("BodyWeight"))
+        elif scatterex_input == 'bench':
+            print(lifter.exportScatter("Bench"))
+        elif scatterex_input == 'squat':
+            print(lifter.exportScatter("Squat"))
+        elif scatterex_input == 'deadlift':
+            print(lifter.exportScatter("Deadlift"))
+        elif scatterex_input == 'total':
+            print(lifter.exportScatter("Total"))
+        else:
+            print("Invalid option.")
+    else:
+        print("Invalid option.")
+
 def run_console_ui():
     lifter = None
     while True:
-        file_extension = input("What type of file are you using .csv or .pkl?: ")
-        file_name = input("Enter the name of the .csv file you would like to read from: ")
+        file_extension = input("What type of file are you using? '.csv' or '.pkl': ")
+        file_name = input("Enter the name of the file you would like to read from: ")
         if os.path.exists("INPUT/" + file_name + file_extension):
             lifter = Lifter(file_name + file_extension)
             break
@@ -127,6 +161,7 @@ def run_console_ui():
         print("Generate Permutations: Enter 'P'")
         print("Calculate: Enter 'C'")
         print("Draw a Graph: Enter 'D'")
+        print("Export a Graph to the Output Folder: Enter 'X'")
         print("Quit: Enter 'Q'. \n")
 
         user_input = input("Enter Letter: ").lower()
@@ -202,6 +237,14 @@ def run_console_ui():
                 if draw_input == 'q':
                     break
                 run_drawing(draw_input, lifter)
+
+        elif user_input == 'x':
+            while True:
+                export_options()
+                export_input = input("Enter Letter: ").lower()
+                if export_input == 'q':
+                    break
+                run_export(export_input, lifter)
 
         elif user_input == 'q':
             break
