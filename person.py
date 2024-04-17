@@ -64,19 +64,17 @@ class Person:
   def __init__(self):
     pass
 
-  def showHistogram(self, data):
-    data.hist(figsize=(10, 6))
+  def showHistogram(self):
+    self.data.hist(figsize=(10, 6))
     plt.show()
   
-  def showLine(self,data):
-    data.plot(kind='line', figsize=(10, 6))
+  def showLine(self):
+    self.data.plot(kind='line', figsize=(10, 6))
     plt.show()
 
-  def searchWeightCategory(self, weightCategory, data=None):
-    if data is None:
-      data = self.data
-
-    return data.query(f"WeightCategory == {weightCategory}")
+  def searchWeightCategory(self, weightCategory):
+    self.data = self.data.query(f"Total == {weightCategory}")
+    return self.data.query(f"Total == {weightCategory}")
 
 
 #Function definitions Start Here

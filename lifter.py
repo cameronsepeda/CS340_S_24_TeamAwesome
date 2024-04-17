@@ -80,18 +80,13 @@ class Lifter(Person):
     self.data.plot(kind='box', figsize=(10, 6))
     plt.show()
 
-  def showScatter(self, data = None):
-    if data is None:
-      data = self.data
-
-    data.plot(kind='scatter', x='WeightCategory', y='Total', figsize=(10, 6))
+  def showScatter(self, column):
+    self.data.plot(kind='scatter', x='WeightCategory', y=column,  figsize=(10, 6))
     plt.show()
 
-  def searchBench(self, Bench, data = None):
-    if data is None:
-      data = self.data
-
-    return data.query(f"Bench == {Bench}")
+  def searchTotal(self, Total):
+    self.data = self.data.query(f"Total == {Total}")
+    return self.data.query(f"Total == {Total}")
 
   def calculateStats(self, column):
     stats = {

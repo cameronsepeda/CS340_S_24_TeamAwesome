@@ -69,9 +69,8 @@ import seaborn as sns
 def main():
     lifter = Lifter('data.csv')
     print(lifter.read_csv())
-    print(lifter.calculateStats("Total"))
-    print(lifter.showUniqueValues("Total"))
-    print(lifter.generateCombinations(3,"Total"))
+    lifter.showScatter("Total")
+    
     #lifter.showViolin()
 
 #
