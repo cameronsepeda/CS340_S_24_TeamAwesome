@@ -158,6 +158,7 @@ def run_console_ui():
         print("Display Data: Enter 'V'")
         print("Show Unique Values: Enter 'U'")
         print("Search by Weight Category: Enter 'W'")
+        print("Search by Total: Enter 'T'")
         print("Generate Combinations: Enter 'G'")
         print("Generate Permutations: Enter 'P'")
         print("Calculate: Enter 'C'")
@@ -211,6 +212,12 @@ def run_console_ui():
                     print(lifter.searchWeightCategory("181"))
                 else:
                     print("Invalid option.")
+                break
+
+        elif user_input == 't':
+            while True:
+                searchTotal_input = input("Enter a number: ")
+                print(lifter.searchTotal(searchTotal_input))
                 break
 
         elif user_input == 'g':

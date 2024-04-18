@@ -102,8 +102,8 @@ class Person:
 
     
   def searchWeightCategory(self, weightCategory):
-    self.data = self.data.query(f"Total == {weightCategory}")
-    return self.data.query(f"Total == {weightCategory}")
+    self.data = self.data.query(f"WeightCategory == {weightCategory}")
+    return self.data.query(f"WeightCategory == {weightCategory}")
 
 
 
