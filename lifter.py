@@ -33,11 +33,21 @@ import os
 import pandas as pd
 import seaborn as sns
 import itertools
+import logging
 
 #Class definitions Start Here
 class Lifter(Person):
 
   def __init__(self, file):
+    self.logger = logging.getLogger(__name__)
+    self.logger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    ch.setFormatter(formatter)
+    self.logger.addHandler(ch)
+
     file_extension = os.path.splitext(file)[1]
     input_dir = "INPUT"
     file_path = os.path.join(input_dir, file)
@@ -53,6 +63,7 @@ class Lifter(Person):
   #   return self.data
 
   def showData(self):
+    self.logger.info("Displaying data...")
     print(self.data)
 
   def showViolin(self):
@@ -115,3 +126,18 @@ class Lifter(Person):
   def generateCombinations(self, r, column):
     combinations = list(itertools.combinations(self.showUniqueValues(column), r))
     return combinations
+  
+  def calculateJointCounts(self, column1, column2):
+    joint_count = (self.data[column1] & self.data[column2]).sum()
+    return joint_count
+  
+  def calculateJointProbabilities(self, column1, column2):
+    joint_prob = (self.data[column1] & self.data[column2]).sum() / len(self.data)
+    return joint_prob
+  
+  def calculateConditionalProbabilities(self, column1, column2):
+    prob_A = self.data[column1].sum() / len(self.data)
+    prob_B = self.data[column2].sum() / len(self.data)
+    joint_prob_AB = len(self.data[(self.data[column1] == 1) & (self.data[column2] == 1)]) / len(self.data)
+    conditional_prob_A_given_B = joint_prob_AB / prob_B
+    return conditional_prob_A_given_B

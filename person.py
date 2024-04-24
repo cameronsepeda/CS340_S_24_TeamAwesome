@@ -32,6 +32,7 @@ import numpy as np
 import os
 import pandas as pd
 import seaborn as sns
+import logging
 
 #Class definitions Start Here
 class Person:
@@ -75,6 +76,14 @@ class Person:
     pickle_file_path = os.path.join(self.CONSTANTS["output_dir"], filename)
         
     self.data.to_pickle(pickle_file_path)
+
+  def exportCSV(self, filename='data.csv'):
+    if not os.path.exists(self.CONSTANTS["output_dir"]):
+      os.makedirs(self.CONSTANTS["output_dir"])
+        
+    csv_file_path = os.path.join(self.CONSTANTS["output_dir"], filename)
+        
+    self.data.to_csv(csv_file_path)
 
   def searchWeightCategory(self, weightCategory):
     self.data = self.data.query(f"WeightCategory == {weightCategory}")
