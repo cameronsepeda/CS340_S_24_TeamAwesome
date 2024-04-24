@@ -2,16 +2,17 @@
 module_name = 'config'
 
 '''
-Version: <***>
+Version: 1.0
 
 Description:
-    <***>
+    config file
 
 Authors:
-    <***>
+    Team Awesome
+    Henry & Cameron
 
 Date Created     :  <***>
-Date Last Updated:  <***>
+Date Last Updated:  4/24/2024
 
 Doc:
     <***>
@@ -21,24 +22,12 @@ Notes:
 '''
 
 #%% IMPORTS                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-if __name__ == "__main__":
-   import os
-   #os.chdir("./../..")
-#
-
-#custom imports
-
-
-#other imports
 from copy import deepcopy as dpcpy
 from matplotlib import pyplot as plt
 import numpy as np 
 import os
 import pandas as pd
 import seaborn as sns
-
-#%% USER INTERFACE              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 #%% CONSTANTS                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 LBS_TO_KGS = 0.453592
@@ -56,39 +45,3 @@ WILKS_F_E =.00000938773881462799
 WILKS_F_F = -.000000023334613884954
 output_dir = "OUTPUT"
 input_dir = "INPUT"
-
-#%% CONFIGURATION               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-#%% INITIALIZATIONS             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-#%% DECLARATIONS                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#Global declarations Start Here
-
-
-
-#Class definitions Start Here
-
-
-
-#Function definitions Start Here
-def main():
-    pass
-#
-
-#%% MAIN CODE                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#Main code start here
-
-
-
-#%% SELF-RUN                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#Main Self-run block
-if __name__ == "__main__":
-    
-    print(f"\"{module_name}\" module begins.")
-    
-    #TEST Code
-    main()

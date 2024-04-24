@@ -2,16 +2,17 @@
 module_name = 'main'
 
 '''
-Version: <***>
+Version: 1.0
 
 Description:
-    <***>
+    main file
 
 Authors:
-    <***>
+    Team Awesome
+    Henry & Cameron
 
 Date Created     :  <***>
-Date Last Updated:  <***>
+Date Last Updated:  4/24/2024
 
 Doc:
     <***>
@@ -21,11 +22,6 @@ Notes:
 '''
 
 #%% IMPORTS                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-if __name__ == "__main__":
-   import os
-   #os.chdir("./../..")
-#
-
 #custom imports
 import config
 from person import Person
@@ -291,34 +287,9 @@ def run_console_ui():
 
     return lifter
 
-#%% CONSTANTS                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-#%% CONFIGURATION               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-#%% INITIALIZATIONS             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-#%% DECLARATIONS                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#Global declarations Start Here
-
-
-
-#Class definitions Start Here
-
-
-
 #Function definitions Start Here
 def main():
     run_console_ui()
-
-#%% MAIN CODE                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#Main code start here
-
-
 
 #%% SELF-RUN                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #Main Self-run block

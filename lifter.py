@@ -2,16 +2,17 @@
 module_name = 'lifter'
 
 '''
-Version: <***>
+Version: 1.0
 
 Description:
-    <***>
+    child class file
 
 Authors:
-    <***>
+    Team Awesome
+    Henry & Cameron
 
 Date Created     :  <***>
-Date Last Updated:  <***>
+Date Last Updated:  4/24/2024
 
 Doc:
     <***>
@@ -21,11 +22,6 @@ Notes:
 '''
 
 #%% IMPORTS                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-if __name__ == "__main__":
-   import os
-   #os.chdir("./../..")
-#
-
 #custom imports
 from person import Person
 
@@ -38,28 +34,8 @@ import pandas as pd
 import seaborn as sns
 import itertools
 
-#%% USER INTERFACE              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-#%% CONSTANTS                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-#%% CONFIGURATION               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-#%% INITIALIZATIONS             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-#%% DECLARATIONS                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#Global declarations Start Here
-
-
-
 #Class definitions Start Here
 class Lifter(Person):
-
 
   def __init__(self, file):
     file_extension = os.path.splitext(file)[1]
@@ -139,23 +115,3 @@ class Lifter(Person):
   def generateCombinations(self, r, column):
     combinations = list(itertools.combinations(self.showUniqueValues(column), r))
     return combinations
-
-
-#Function definitions Start Here
-def main():
-    pass
-#
-
-#%% MAIN CODE                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#Main code start here
-
-
-
-#%% SELF-RUN                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#Main Self-run block
-if __name__ == "__main__":
-    
-    print(f"\"{module_name}\" module begins.")
-    
-    #TEST Code
-    main()
