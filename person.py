@@ -41,18 +41,36 @@ class Person:
   "wilks_f_d": config.WILKS_F_D, "wilks_f_e": config.WILKS_F_E, "wilks_f_a": config.WILKS_F_F, "output_dir": config.output_dir}
 
   def __init__(self):
-    pass
+    self.logger = logging.getLogger(__name__)
+    self.logger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    ch.setFormatter(formatter)
+    self.logger.addHandler(ch)
+
+    fh = logging.FileHandler('Log/person.log')
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(formatter)
+    self.logger.addHandler(fh)
 
   def showHistogram(self):
+    self.logger.info("Generating histogram plot...")
+
     self.data.hist(figsize=(10, 6))
     plt.tight_layout()
     plt.show()
   
   def showLine(self):
+    self.logger.info("Generating line plot...")
+
     self.data.plot(kind='line', figsize=(10, 6))
     plt.show()
 
   def exportHistogram(self):
+    self.logger.info("Exporting histogram plot...")
+
     self.data.hist(figsize=(10, 6))
     plt.tight_layout()
     if not os.path.exists(self.CONSTANTS["output_dir"]):
@@ -62,6 +80,8 @@ class Person:
     plt.close()
 
   def exportLine(self):
+    self.logger.info("Exporting line plot...")
+
     self.data.plot(kind='line', figsize=(10, 6))
     if not os.path.exists(self.CONSTANTS["output_dir"]):
       os.makedirs(self.CONSTANTS["output_dir"])
@@ -70,14 +90,17 @@ class Person:
     plt.close()
 
   def exportPickle(self, filename='data.pkl'):
+    self.logger.info("Exporting pickle file...")
+
     if not os.path.exists(self.CONSTANTS["output_dir"]):
       os.makedirs(self.CONSTANTS["output_dir"])
         
-    pickle_file_path = os.path.join(self.CONSTANTS["output_dir"], filename)
-        
+    pickle_file_path = os.path.join(self.CONSTANTS["output_dir"], filename)  
     self.data.to_pickle(pickle_file_path)
 
   def exportCSV(self, filename='data.csv'):
+    self.logger.info("Exporting csv file...")
+
     if not os.path.exists(self.CONSTANTS["output_dir"]):
       os.makedirs(self.CONSTANTS["output_dir"])
         
@@ -86,5 +109,7 @@ class Person:
     self.data.to_csv(csv_file_path)
 
   def searchWeightCategory(self, weightCategory):
+    self.logger.info("Searching weight categories...")
+
     self.data = self.data.query(f"WeightCategory == {weightCategory}")
     return self.data.query(f"WeightCategory == {weightCategory}")

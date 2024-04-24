@@ -48,6 +48,11 @@ class Lifter(Person):
     ch.setFormatter(formatter)
     self.logger.addHandler(ch)
 
+    fh = logging.FileHandler('Log/lifter.log')
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(formatter)
+    self.logger.addHandler(fh)
+
     file_extension = os.path.splitext(file)[1]
     input_dir = "INPUT"
     file_path = os.path.join(input_dir, file)
@@ -64,21 +69,30 @@ class Lifter(Person):
 
   def showData(self):
     self.logger.info("Displaying data...")
+
     print(self.data)
 
   def showViolin(self):
+    self.logger.info("Generating violin plot...")
+
     sns.violinplot(data=self.data)
     plt.show()
 
   def showWhisker(self):
+    self.logger.info("Generating whisker plot...")
+
     self.data.plot(kind='box', figsize=(10, 6))
     plt.show()
 
   def showScatter(self, column):
+    self.logger.info("Generating scatter plot for column " + column + "...")
+    
     self.data.plot(kind='scatter', x='WeightCategory', y=column,  figsize=(10, 6))
     plt.show()
 
   def exportViolin(self):
+    self.logger.info("Exporting violin plot...")
+
     sns.violinplot(data=self.data)
     plt.xticks(rotation=45)
     if not os.path.exists(self.CONSTANTS["output_dir"]):
@@ -88,6 +102,8 @@ class Lifter(Person):
     plt.close()
 
   def exportWhisker(self):
+    self.logger.info("Exporting whisker plot...")
+
     self.data.plot(kind='box', figsize=(10, 6))
     if not os.path.exists(self.CONSTANTS["output_dir"]):
       os.makedirs(self.CONSTANTS["output_dir"])
@@ -96,6 +112,8 @@ class Lifter(Person):
     plt.close()
 
   def exportScatter(self, column):
+    self.logger.info("Exporting scatter plot for column " + column + "...")
+
     self.data.plot(kind='scatter', x='WeightCategory', y=column,  figsize=(10, 6))
     if not os.path.exists(self.CONSTANTS["output_dir"]):
       os.makedirs(self.CONSTANTS["output_dir"])
@@ -104,10 +122,14 @@ class Lifter(Person):
     plt.close()
 
   def searchTotal(self, Total):
+    self.logger.info("Searching total values for value " + Total + "...")
+
     self.data = self.data.query(f"Total == {Total}")
     return self.data.query(f"Total == {Total}")
 
   def calculateStats(self, column):
+    self.logger.info("Calculating stats for column " + column + "...")
+
     stats = {
       'column': column,
       'mean': self.data[column].mean(),
@@ -117,25 +139,37 @@ class Lifter(Person):
     return stats
 
   def showUniqueValues(self, column):
+    self.logger.info("Displaying unique values for column " + column + "...")
+
     return self.data[column].unique()
 
-  def generatePermutations(self,r, column):
+  def generatePermutations(self, r, column):
+    self.logger.info("Generating permutations for column " + column + "...")
+
     permutations = list(itertools.permutations(self.showUniqueValues(column), r))
     return permutations
 
   def generateCombinations(self, r, column):
+    self.logger.info("Generating combinations for column " + column + "...")
+
     combinations = list(itertools.combinations(self.showUniqueValues(column), r))
     return combinations
   
   def calculateJointCounts(self, column1, column2):
+    self.logger.info("Calculating joint counts for columns " + column1 + " and " + column2 + "...")
+
     joint_count = (self.data[column1] & self.data[column2]).sum()
     return joint_count
   
   def calculateJointProbabilities(self, column1, column2):
+    self.logger.info("Calculating joint probabilities for columns " + column1 + " and " + column2 + "...")
+
     joint_prob = (self.data[column1] & self.data[column2]).sum() / len(self.data)
     return joint_prob
   
   def calculateConditionalProbabilities(self, column1, column2):
+    self.logger.info("Calculating conditional probabilities for columns " + column1 + " and " + column2 + "...")
+
     prob_A = self.data[column1].sum() / len(self.data)
     prob_B = self.data[column2].sum() / len(self.data)
     joint_prob_AB = len(self.data[(self.data[column1] == 1) & (self.data[column2] == 1)]) / len(self.data)

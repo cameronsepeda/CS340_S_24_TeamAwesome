@@ -43,6 +43,7 @@ def main():
     lifter = Lifter("data.csv")
 
     print(lifter.showData())
+    print(lifter.calculateStats("Total"))
 
     """
     lifter.exportCSV()
