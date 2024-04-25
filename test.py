@@ -42,13 +42,12 @@ def main():
 
     print(lifter.showData())
     print(lifter.calculateStats("Total"))
-
-    """
+    print(lifter.showUniqueValues("Bench"))
+    print(lifter.generateCombinations(3, "Deadlift"))
+    print(lifter.showHistogram())
+    lifter.exportLine()
     lifter.exportCSV()
     print(lifter.calculateJointCounts("Total", "WeightCategory"))
-    print(lifter.calculateJointProbabilities("Total", "WeightCategory"))
-    print(lifter.calculateConditionalProbabilities("Total", "WeightCategory"))
-    """
 
 #%% SELF-RUN                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #Main Self-run block
