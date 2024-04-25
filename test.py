@@ -38,8 +38,6 @@ import logging
 
 #Function definitions Start Here
 def main():
-    #put all testing code here
-
     lifter = Lifter("data.csv")
 
     print(lifter.showData())
