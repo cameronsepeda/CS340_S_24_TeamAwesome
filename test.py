@@ -1,5 +1,5 @@
 #%% MODULE BEGINS
-module_name = 'main'
+module_name = 'test'
 
 '''
 Version: 1.0
@@ -11,14 +11,8 @@ Authors:
     Team Awesome
     Henry & Cameron
 
-Date Created     :  <***>
+Date Created     :  3/29/2024
 Date Last Updated:  4/24/2024
-
-Doc:
-    <***>
-
-Notes:
-    <***>
 '''
 
 #%% IMPORTS                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,11 +37,17 @@ def main():
     print(lifter.showData())
     print(lifter.calculateStats("Total"))
     print(lifter.showUniqueValues("Bench"))
+    print(lifter.searchWeightCategory(123))
     print(lifter.generateCombinations(3, "Deadlift"))
+    print(lifter.generatePermutations(3, "Deadlift"))
     print(lifter.showHistogram())
+    print(lifter.showScatter("Total"))
     lifter.exportLine()
     lifter.exportCSV()
+    lifter.exportPickle()
     print(lifter.calculateJointCounts("Total", "WeightCategory"))
+    print(lifter.calculateJointProbabilities("Total", "WeightCategory"))
+    print(lifter.calculateConditionalProbabilities("Total", "WeightCategory"))
 
 #%% SELF-RUN                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #Main Self-run block

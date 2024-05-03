@@ -11,14 +11,8 @@ Authors:
     Team Awesome
     Henry & Cameron
 
-Date Created     :  <***>
+Date Created     :  3/29/2024
 Date Last Updated:  4/24/2024
-
-Doc:
-    <***>
-
-Notes:
-    <***>
 '''
 
 #%% IMPORTS                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

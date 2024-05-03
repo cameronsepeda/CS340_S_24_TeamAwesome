@@ -11,14 +11,8 @@ Authors:
     Team Awesome
     Henry & Cameron
 
-Date Created     :  <***>
+Date Created     :  3/29/2024
 Date Last Updated:  4/24/2024
-
-Doc:
-    <***>
-
-Notes:
-    <***>
 '''
 
 #%% IMPORTS                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,11 +55,11 @@ def run_calculation(calc_input, lifter):
         else:
             print("Invalid option.")
     elif calc_input == 'j':
-        print("Calculating Joint Count...")
+        print(print(lifter.calculateJointCounts("Total", "WeightCategory")))
     elif calc_input == 'p':
-        print("Calculating Joint Probability...")
+        print(print(lifter.calculateJointProbabilities("Total", "WeightCategory")))
     elif calc_input == 'c':
-        print("Calculating Conditional Probability...")
+        print(print(lifter.calculateConditionalProbabilities("Total", "WeightCategory")))
     else:
         print("Invalid option.")
 
