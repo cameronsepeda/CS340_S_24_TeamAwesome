@@ -167,5 +167,5 @@ class Lifter(Person):
     prob_A = self.data[column1].sum() / len(self.data)
     prob_B = self.data[column2].sum() / len(self.data)
     joint_prob = (self.data[column1] & self.data[column2]).sum() / len(self.data)
-    conditional_prob_A_given_B = joint_prob_AB / prob_B
+    conditional_prob_A_given_B = joint_prob / prob_B
     return conditional_prob_A_given_B
